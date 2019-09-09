@@ -1,6 +1,6 @@
 # truffle-conflux-init-default
 
-Default project for Truffle-Conflxu: example contracts, migrations and tests
+Default project for Truffle-Conflux: example contracts, migrations and tests
 
 ## Usage
 
