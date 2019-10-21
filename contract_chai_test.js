@@ -1,3 +1,10 @@
+/*
+ * 
+ *  just a example for test the contract 
+ * 
+ * 
+ * 
+ */
 require('chai')
 .use(require('chai-as-promised'))
 .should()
