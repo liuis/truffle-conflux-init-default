@@ -1,5 +1,6 @@
 /*
  * if you want to run the tests, follow the steps
+ *
  * npm init -y && npm install tape --save-dev
  * 
  * npm install  conflux-web
