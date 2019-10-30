@@ -1,15 +1,14 @@
 /*
  * if you want to run the tests, follow the steps
- *
- * npm install -g conflux-web
- *
- * npm install -g tape
- *
- * npm install -g tape-promise
+ * npm init -y && npm install tape --save-dev
  * 
- * npm install -g tap-spec 
+ * npm install  conflux-web
  *
- * npm install -g nyc
+ * npm install  tape-promise
+ * 
+ * npm install  tap-spec 
+ *
+ * npm install  nyc
  *  
  *  run :
  *      tape verify_FC_ERC20.js | tap-spec
@@ -21,16 +20,18 @@
  * 
   */
 const ConfluxWeb = require('conflux-web');
-const test =require('tape-promise/tape');
-const confluxWeb = new ConfluxWeb('http://testnet-jsonrpc.conflux-chain.org:12537');
+//const test =require('tape-promise/tape');
+var tape = require('tape')
+var _test = require('tape-promise').default // <---- notice 'default'
+var test = _test(tape)
+const confluxWeb = new ConfluxWeb('http://0.0.0.0:12537');
 
-
-const DEPLOYEDPRIVATEKEY = "0x2d50c1be33d59f5627cb3e80f9baea6761b411221faafa3c48808f247db6c6c5"; //eg: "0x2d50c1be33d59f5627cb3e80f9baea6761b411221faafa3c48808f247db6c6c5",
-const DEPLOYEDADDRESS = "0xcf72957656b60f4d4144cc93206b4112508a023e"; // eg: "0xcf72957656b60f4d4144cc93206b4112508a023e" 
-const fd = require("./demo-test/build/FC.sol.json");
+const DEPLOYEDPRIVATEKEY = "0xf4c2a9270307715b4ca23a9472574a655e8be8a4cdc4fc1115141ef352d964ec"; //eg: "0x2d50c1be33d59f5627cb3e80f9baea6761b411221faafa3c48808f247db6c6c5",
+const DEPLOYEDADDRESS = "0x83891877fbc21f2431f33fb78aca3d7efa200046"; // eg: "0xcf72957656b60f4d4144cc93206b4112508a023e" 
+const fd = require("./build/FC.sol.json");
 const abi = fd.abi;
 const DEPLOYEDABI = abi;// you can find in demo-test/build folder
-const CONTRACTADDRESS = "0x3898de0484f68e84c536298d082b6fcb12d066ca"//"put deployed contract address"
+const CONTRACTADDRESS = "0x0a5a61895ad603fcf8d99518e0e63c77c25a38c8"//"put deployed contract address"
 
 
 confluxWeb.cfx.accounts.wallet.add({
@@ -50,12 +51,12 @@ function getAccounts(){
 
 test('test get account ', function (t) {
   return getAccounts().then( (accounts) =>{
-    t.equal(accounts, DEPLOYEDADDRESS, "account must be your deploy contract address")
+    t.equal(accounts.toString(), DEPLOYEDADDRESS, "account must be your deploy contract address")
   })
 })
 
 function name() {
-  return mycontract.methods.name().call()
+  return myContract.methods.name().call()
 }
 
 test('test contract erc20 token name ', function (t) {
@@ -65,7 +66,7 @@ test('test contract erc20 token name ', function (t) {
 })
 
 function symbol() {
-  return mycontract.methods.symbol().call()
+  return myContract.methods.symbol().call()
 }
 
 test('test contract erc20 token symbol ', function (t) {
@@ -75,7 +76,7 @@ test('test contract erc20 token symbol ', function (t) {
 })
 
 function decimals() {
-  return mycontract.methods.decimals().call()
+  return myContract.methods.decimals().call()
 }
 
 test('test contract erc20 token  decimals', function (t) {
@@ -85,28 +86,28 @@ test('test contract erc20 token  decimals', function (t) {
 })
 
 function cap() {
-  return mycontract.methods.cap().call()
+  return myContract.methods.cap().call()
 }
 
 test('test contract erc20 token  decimals', function (t) {
   return cap().then( (result) =>{
-    t.equal(result, 100000000000000000000000000, " must be your deploy contract set cap")
+    t.equal(result._hex, '0x52b7d2dcc80cd2e4000000', " must be your deploy contract set cap")
   })
 })
 
 function circulationRatio() {
-  return mycontract.methods.circulationRatio().call()
+  return myContract.methods.circulationRatio().call()
 }
 
 test('test contract erc20 token  circulationRatio', function (t) {
   return circulationRatio().then( (result) =>{
-    t.equal(result, 100, " must be your deploy contract set circulationRatio")
+    t.equal(result._hex, '0x64', " must be your deploy contract set circulationRatio")
   })
 })
 
 
 function isAdmin(address) {
-  return mycontract.methods.isAdmin(address).call()
+  return myContract.methods.isAdmin(address).call()
 }
 
 test('test address is the admin role', function (t) {
