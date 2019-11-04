@@ -29,7 +29,7 @@ const confluxWeb = new ConfluxWeb('http://0.0.0.0:12537');
 
 const DEPLOYEDPRIVATEKEY = "0xf4c2a9270307715b4ca23a9472574a655e8be8a4cdc4fc1115141ef352d964ec"; //eg: "0x2d50c1be33d59f5627cb3e80f9baea6761b411221faafa3c48808f247db6c6c5",
 const DEPLOYEDADDRESS = "0x83891877fbc21f2431f33fb78aca3d7efa200046"; // eg: "0xcf72957656b60f4d4144cc93206b4112508a023e" 
-const fd = require("./build/FC.sol.json");
+const fd = require("../build/FC.sol.json");
 const abi = fd.abi;
 const DEPLOYEDABI = abi;// you can find in demo-test/build folder
 const CONTRACTADDRESS = "0x0a5a61895ad603fcf8d99518e0e63c77c25a38c8"//"put deployed contract address"
