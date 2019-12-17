@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "conffle-contract": "0.0.24-y.22",
-    "conflux-web": "0.1.22-alpha.0"
+    "conflux-web": "1.2.2-alpha.0"
   }
 }
