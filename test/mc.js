@@ -51,7 +51,7 @@ MetaCoin.at(contract_address).then(async function(instance) {
         console.log("account_one balance is :", result)
         console.log("--------------------------------")
         coin.sendCoin(account_two, 3).then(async function(res) {
-                console.log("step1:", res)
+                console.log("send account_two 3 coins result:", res)
                 coin.getBalance(account_two).then(function(re) {
                     console.log("account_two balance is : ", re)
                 });
