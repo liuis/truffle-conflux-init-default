@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "conffle-contract": "0.0.24-y.22",
-    "conflux-web": "1.2.2-alpha.0"
+    "conffle-contract": "latest",
+    "conflux-web": "1.2.2-alpha.0",
+    "ora": "^4.0.3"
   }
 }
