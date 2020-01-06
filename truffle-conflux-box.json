@@ -8,5 +8,8 @@
     "Compile": "truffle compile",
     "Migrate": "truffle migrate",
     "Test": "truffle test"
-  }
+  },
+  "hooks": {
+  "post-unpack": "cd test; npm install"
+}
 }
