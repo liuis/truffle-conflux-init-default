@@ -1,13 +1,13 @@
 {
-  "docs_url": "http://truffleframework.com/docs",
+  "docs_url": "http://conflux-chain.org/docs",
   "ignore": [
     "README.md",
     ".gitignore"
   ],
   "commands": {
-    "Compile": "truffle compile",
-    "Migrate": "truffle migrate",
-    "Test": "truffle test"
+    "Compile": "conffle compile",
+    "deploy": "conffle deploy",
+    "console": "conffle console"
   },
   "hooks": {
   "post-unpack": "cd test; npm install"
